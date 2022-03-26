@@ -1,0 +1,78 @@
+\documentclass[openany,12pt,oneside]{book} % with 'openany' option, no blank page will be left.
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc} 
+%\usepackage[italian]{babel} % useful only if the text is in italian
+
+\usepackage[nottoc]{tocbibind} % listoffigures, listoftables and bibliography in the table of contents (TOC)
+\usepackage{amsmath} % math package
+\usepackage[table,xcdraw]{xcolor} % in order to use colors in tables
+\usepackage{multirow} % in order to join cells in tables
+\usepackage{makecell}
+
+% Source: https://tex.stackexchange.com/questions/302594/citation-inside-a-caption-dont-follow-order-of-appearance
+% prevents cites in captions from misnumering your references.
+\usepackage{notoccite}
+
+\usepackage[numbers]{natbib} % Source: https://it.overleaf.com/learn/latex/Bibliography_management_with_natbib
+\bibliographystyle{unsrt} % Source: https://www.bibtex.com/s/bibliography-style-base-unsrt/
+
+% Source https://tex.stackexchange.com/questions/146911/alternatives-to-asterisk-and-star-for-superscripts
+% in order to use $\ssymbol{n}$ with n=[0,9]
+\makeatletter
+\newcommand{\ssymbol}[1]{^{\@fnsymbol{#1}}}
+\makeatother
+
+
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=2cm]{geometry}  % custom margins
+\linespread{1.5} % change interline spacing (https://en.wikipedia.org/wiki/Leading) to 1.5
+
+\usepackage[inline, shortlabels]{enumitem} % in order to create inline lists
+\usepackage{booktabs} % in order to use \bottomrule
+%https://tex.stackexchange.com/questions/88929/vertical-table-lines-are-discontinuous-with-booktabs
+\aboverulesep=0ex
+\belowrulesep=0ex
+
+\usepackage{longtable}
+
+% Source: https://tex.stackexchange.com/questions/463167/table-align-single-cell-without-using-multicolumn
+%in order to use \Centering in tables
+\usepackage{ragged2e}
+
+
+\usepackage{graphicx} % add figures with \begin{figure} [...] \end{figure}
+\usepackage{float} % in order to use [H] option on figures.
+% This option "draw" the figure near to the text where it is added.
+% However, if you want to be more flexible, let's use [!htbp] instead of [H].
+
+\usepackage{pdfpages} % \includepdf to include PDF file
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true, % set true if you want colored links
+	linktoc=all,     % set to all if you want both sections and subsections linked 
+	linkcolor=blue,  % set color link (with \ref command)
+	urlcolor=blue, % set URL color (with \href command)
+	citecolor=blue % set citation color (with \cite command)
+}
+
+\usepackage[all]{hypcap} % when you click on a \ref, you will see directly the element (at the beginning) and not only the caption.
+% Otherwise you should move up to see, e.g., a figure.
+
+\usepackage{verbatim} % multi-line comments with \begin{comment} [...] \end{comment}
+
+
+% commands to handle table of contents (TOC)
+%tocdepth -> TOC-depth (e.g. \setcounter{tocdepth}{1} you will see 'chapter' and 'section' in the TOC)
+%secnumdepth -> up to where TOC should contain the numbers (e.g. \setcounter{secnumdepth}{4} set numbers until 'paragraph')
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+% Note: the sectioning levels have the following numbers:
+% 	-1 part     
+% 	0 chapter
+% 	1 section
+% 	2 subsection
+% 	3 subsubsection
+% 	4 paragraph
+% 	5 subparagraph
+
+\pagestyle{plain} % number of pages below
